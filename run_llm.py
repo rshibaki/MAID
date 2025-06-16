@@ -4,7 +4,7 @@ import os
 import numpy as np
 import random
 from tqdm import tqdm
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig # pipeline
 import torch
 from openai import OpenAI
 from together import Together
@@ -40,7 +40,7 @@ MODEL_CONFIGS = {
 # ===== 引数の設定 =====
 parser = argparse.ArgumentParser(description="Run LLM text generation")
 parser.add_argument("--model", type=str, choices=MODEL_CONFIGS.keys(), required=True, help="Model alias (e.g., llama3, deepseek, gpt4.1-mini)")
-# parser.add_argument("--repeat", type=int, default=1, help="Repeat count per prompt")
+parser.add_argument("--temp", type=float, default=0.7, help="Temperature (default: 0.7)")
 args = parser.parse_args()
 
 config = MODEL_CONFIGS[args.model]
@@ -49,6 +49,7 @@ output_path = config["output_path"]
 
 # 入出力ファイル
 PROMPT_PATH = "prompts/prob_weigh_prompts.jsonl"
+temperature = args.temp
 
 # シード固定
 SEED = 42
@@ -59,15 +60,16 @@ if torch.cuda.is_available():
     torch.cuda.manual_seed_all(SEED)
 
 # ===== モデル読み込みと生成器設定 =====
+use_openai = False
+use_together = False
+
 if args.model in ["gpt4.1-mini", "gpt4.1"]:
     # OpenAI API クライアント
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     use_openai = True
-    use_together = False
 elif args.model.startswith("llama4"):
     # Together用
     together_client = Together(api_key=os.getenv("TOGETHER_API_KEY"))
-    use_openai = False
     use_together = True
 else:
     # transformers モデル読み込み
@@ -79,8 +81,7 @@ else:
         device_map="auto",
         token=True
     )
-    generator = pipeline("text-generation", model=model, tokenizer=tokenizer, device_map="auto")
-    use_openai = False
+    model.eval()
 
 # プロンプト読み込み
 with open(PROMPT_PATH, "r", encoding="utf-8") as f:
@@ -101,7 +102,7 @@ with open(output_path, "w", encoding="utf-8") as out_f:
                     model=model_id,
                     messages=[{"role": "user", "content": prompt_text}],
                     max_tokens=100,
-                    temperature=0.7,
+                    temperature=temperature,
                 )
                 output_text = response.choices[0].message.content
             elif use_together:
@@ -109,17 +110,27 @@ with open(output_path, "w", encoding="utf-8") as out_f:
                     model=model_id,
                     messages=[{"role": "user", "content": prompt_text}],
                     max_tokens=100,
-                    temperature=0.7,
+                    temperature=temperature,
                 )
                 output_text = response.choices[0].message.content
             else:
-                result = generator(
-                    prompt_text,
-                    max_new_tokens=100,
-                    do_sample=False,
-                    return_full_text=False,
+                # 🔧 修正：transformers で generate() を使用
+                inputs = tokenizer(prompt_text, return_tensors="pt").to(model.device)
+
+                generation_config = GenerationConfig(
+                    max_new_tokens=50,
+                    temperature=temperature,
+                    top_p=0.95,
+                    do_sample=True,
+                    pad_token_id=tokenizer.eos_token_id
                 )
-                output_text = result[0]["generated_text"]
+
+                output_ids = model.generate(
+                    **inputs,
+                    generation_config=generation_config
+                )
+
+                output_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
             record = {
                 **entry,
