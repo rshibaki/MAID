@@ -101,7 +101,7 @@ with open(output_path, "w", encoding="utf-8") as out_f:
                 response = client.chat.completions.create(
                     model=model_id,
                     messages=[{"role": "user", "content": prompt_text}],
-                    max_tokens=100,
+                    max_tokens=50,
                     temperature=temperature,
                 )
                 output_text = response.choices[0].message.content
@@ -109,7 +109,7 @@ with open(output_path, "w", encoding="utf-8") as out_f:
                 response = together_client.chat.completions.create(
                     model=model_id,
                     messages=[{"role": "user", "content": prompt_text}],
-                    max_tokens=100,
+                    max_tokens=50,
                     temperature=temperature,
                 )
                 output_text = response.choices[0].message.content

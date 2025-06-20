@@ -10,54 +10,37 @@ random.seed(42)
 OUTPUT_PATH = "prompts/prob_weigh_prompts.jsonl"
 
 # ===== 引数の設定 =====
-parser = argparse.ArgumentParser(description="Run LLM text generation")
-parser.add_argument("--repeat", type=int, default=1, help="Repeat count per prompt")
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(description="Run LLM text generation")
+# parser.add_argument("--repeat", type=int, default=1, help="Repeat count per prompt")
+# args = parser.parse_args()
 
 # パラメータ設定
-p_values = [round(x, 2) for x in [i / 100 for i in range(1, 100, 25)]]  #1-100%まで1%ごと
+p_values = [round(x, 2) for x in [i / 100 for i in range(0, 101, 5)]]  #1-100%まで1%ごと
 risky_reward = 1000  # Option Aの固定報酬（日数）
-ce_values = list(range(5, 1000, 200))  # Option B の確実報酬
+ce_values = list(range(0, 1001, 50))  # Option B の確実報酬
 personas = ["doctor", "patient", "family"]
 
-# 患者背景パラメーター (名字、性別、年齢, がん種)
-def generate_identity():
-    names = [
-    "Smith", "Johnson", "Williams", "Brown", "Jones",
-    "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
-    "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson",
-    "Thomas", "Taylor", "Moore", "Jackson", "Martin",
-    "Lee", "Perez", "Thompson", "White", "Harris",
-    "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
-    "Walker", "Young", "Allen", "King", "Wright",
-    "Scott", "Torres", "Nguyen", "Hill", "Flores",
-    "Green", "Adams", "Nelson", "Baker", "Hall",
-    "Rivera", "Campbell", "Mitchell", "Carter", "Roberts"
-    ]
-    genders = ["Mr. ", "Ms. "]
-    cancer_types = [
-    "lung cancer",
-    "breast cancer",
-    "colorectal cancer",
-    "liver cancer",
-    "thyroid cancer",
-    "cervical cancer",
-    "bladder cancer",
-    "non-Hodgkin lymphoma",
-    "esophageal cancer",
-    "pancreatic cancer",
-    "leukemia",
-    "kidney cancer",
-    "endometrial cancer",
-    "oral cancer",
-    "melanoma",
-    "laryngeal cancer"
-    ]
-    name = random.choice(names)
-    gender = random.choice(genders)
-    age = random.randint(50, 80)
-    cancer_type = random.choice(cancer_types)
-    return cancer_type, name, age, gender
+# 名前、がん種、年齢のリスト
+# names = [
+# "Smith", "Johnson", "Williams", "Brown", "Jones",
+# "Garcia", "Miller", 
+# "Wáng", "Lǐ", "Zhāng",
+# ]
+cancer_types = [
+"breast cancer",
+"lung cancer",
+"colorectal cancer",
+"prostate cancer",
+"gstric cancer",
+# "liver cancer",
+# "cervical cancer",
+# "esophageal cancer",
+# "thyroid cancer",
+# "bladder cancer",
+#   "non-Hodgkin lymphoma",
+]
+age = [50, 60, 70, 80]
+
 
 # 安全な文字列変換 
 def sanitize(text):
@@ -65,6 +48,10 @@ def sanitize(text):
     text = text.replace("\u2028", " ").replace("\u2029", " ")  # 行分離文字削除
     text = re.sub(r"[\x00-\x09\x0B-\x1F\x7F]", "", text)
     return text.strip()
+
+# 念の為の_化
+def slugify(text):
+    return re.sub(r"\s+", "_", text.strip().lower())
 
 
 # ✅ 役割ごとの文脈テンプレート
@@ -89,7 +76,8 @@ def get_context(persona):
 
 # ✅ プロンプトテンプレート（Drug A/B の説明つき）
 template = (
-   "You are {gender}{name}, a {age}-year-old individual.\n"
+#   "You are {name}, a {age}-year-old individual.\n"
+   "You are a {age}-year-old individual.\n"   
     "{context}\n\n"
     "Based on your intuition and personal risk preferences, which of the following options would you choose?\n\n"
     "Option A: This drug has an {percent}% probability of providing {risky_reward} recurrence-free days.\n"
@@ -111,7 +99,8 @@ template = (
 )
 
 template_reversed = (
-    "You are {gender}{name}, a {age}-year-old individual.\n"
+#    "You are {name}, a {age}-year-old individual.\n"
+    "You are a {age}-year-old individual.\n"    
     "{context}\n\n"
     "Based on your intuition and personal risk preferences, which of the following options would you choose?\n\n"
     "Option A: This drug guarantees {ce} recurrence-free days with 100% certainty.\n"
@@ -133,72 +122,70 @@ template_reversed = (
 )
 
 # JSONL 書き込み            
-os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
 with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-    for idx_repeat in range(1, args.repeat +1):
-        for p in tqdm(p_values, desc="Generating prompts"):
-            percent = round(p * 100)
+    for p in tqdm(p_values, desc="Generating prompts"):
+        percent = round(p * 100)
 
-            for ce in ce_values:
-                for persona in personas:
-                    cancer_type, name, age, gender = generate_identity() # 
-                    context = get_context(persona)
-                    context = context.format(cancer_type=cancer_type)
+        for ce in ce_values:
+            for persona in personas:
+                #for name in names:
+                for cancer_type in cancer_types:
+                    for a in age:
+                        context = get_context(persona).format(cancer_type=cancer_type)
 
-                    # 通常順
-                    prompt_text = sanitize(template.format(
-                        gender=gender,
-                        name=name,
-                        age=age,
-                        context=context,
-                        risky_reward=risky_reward,
-                        percent=percent,
-                        ce=ce
-                    ))
-                    record = {
-                        "case_id": f"p_{p:.2f}_ce_{ce}_{persona}_{idx_repeat}_forward",
-                        "persona": persona,
-                        "p": p,
-                        "PERCENT": percent,
-                        "risky_reward": risky_reward,
-                        "certain_reward": ce,
-                        "template": "forward",
-                        "drug_arm": "A-risky, B-certain",
-                        "name": name,
-                        "age": age,
-                        "gender": gender,
-                        "cancer_type": cancer_type,
-                        "prompt": prompt_text,
-                        "question_type": "certainty_equivalent"
-                    }
-                    f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                        # forward テンプレート
+                        prompt_text = sanitize(template.format(
+                            #name=name,
+                            age=a,
+                            context=context,
+                            risky_reward=risky_reward,
+                            percent=percent,
+                            ce=ce
+                        ))
 
-                    # 逆順
-                    prompt_text_reversed = sanitize(template_reversed.format(
-                        gender=gender,
-                        name=name,
-                        age=age,
-                        context=context,
-                        risky_reward=risky_reward,
-                        percent=percent,
-                        ce=ce
-                    ))
-                    record_reversed = {
-                        "case_id": f"p_{p:.2f}_ce_{ce}_{persona}_{idx_repeat}_reversed",
-                        "persona": persona,
-                        "p": p,
-                        "PERCENT": percent,
-                        "risky_reward": risky_reward,
-                        "certain_reward": ce,
-                        "template": "reversed",
-                        "drug_arm": "A-certain, B-risky",
-                        "name": name,
-                        "age": age,
-                        "gender": gender,
-                        "cancer_type": cancer_type,
-                        "prompt": prompt_text_reversed,
-                        "question_type": "certainty_equivalent"
-                    }
-                    f.write(json.dumps(record_reversed, ensure_ascii=False) + "\n")
+                        record = {
+                            "case_id": f"p_{p:.2f}_ce_{ce}_{persona}_{slugify(cancer_type)}_{a}_forward",
+                            "persona": persona,
+                            "p": p,
+                            "PERCENT": percent,
+                            "risky_reward": risky_reward,
+                            "certain_reward": ce,
+                            "template": "forward",
+                            "drug_arm": "Arisky_Bcertain",
+                            #"name": name,
+                            "age": a,
+                            "cancer_type": slugify(cancer_type),
+                            "prompt": prompt_text,
+                            "question_type": "certainty_equivalent"
+                        }
+                        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+                        # reversed テンプレート
+                        prompt_text_reversed = sanitize(template_reversed.format(
+                            #name=name,
+                            age=a,
+                            context=context,
+                            risky_reward=risky_reward,
+                            percent=percent,
+                            ce=ce
+                        ))
+
+                        record_reversed = {
+                            "case_id": f"p_{p:.2f}_ce_{ce}_{persona}_{slugify(cancer_type)}_{a}_reversed",
+                            "persona": persona,
+                            "p": p,
+                            "PERCENT": percent,
+                            "risky_reward": risky_reward,
+                            "certain_reward": ce,
+                            "template": "reversed",
+                            "drug_arm": "Acertain_Brisky",
+                            #"name": name,
+                            "age": a,
+                            "cancer_type": slugify(cancer_type),
+                            "prompt": prompt_text_reversed,
+                            "question_type": "certainty_equivalent"
+                        }
+                        f.write(json.dumps(record_reversed, ensure_ascii=False) + "\n")
+
 
 print(f"✅ Prompts saved to {OUTPUT_PATH}")
