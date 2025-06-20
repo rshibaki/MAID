@@ -44,14 +44,21 @@ def get_answer_meaning(template, answer_choice):
 
 # 選択数カウント用
 answer_counter = Counter()
+# templateごとのOption A/B選択数を集計
+template_counter = {
+    "forward": Counter(),
+    "reversed": Counter(),
+}
 
 with open(input_path, "r", encoding="utf-8") as infile, \
      open(output_path, "w", newline="", encoding="utf-8") as outfile:
 
-    writer = csv.writer(outfile)
+    writer = csv.writer(outfile, quoting=csv.QUOTE_NONNUMERIC)
     writer.writerow([
         "case_id", "persona", "p", "risky_reward", "certain_reward", "model",
-        "template", "option_arm",
+        "template",
+        #"name", 
+        "age", "cancer_type",
         "answer_choice", "answer_meaning", "reason"
     ])
 
@@ -62,6 +69,10 @@ with open(input_path, "r", encoding="utf-8") as infile, \
         answer_meaning = get_answer_meaning(record.get("template", ""), answer_choice)
         answer_counter[answer_choice] += 1
         answer_counter[answer_meaning] += 1
+        line_temp = record.get("template")
+        line_choice = answer_choice
+        if line_temp in template_counter:
+            template_counter[line_temp][line_choice] += 1
 
         writer.writerow([
             record.get("case_id"),
@@ -71,7 +82,9 @@ with open(input_path, "r", encoding="utf-8") as infile, \
             record.get("certain_reward"),
             record.get("model"),
             record.get("template"),
-            record.get("option_arm"),
+            #record.get("name"),
+            record.get("age"),
+            record.get("cancer_type"),
             answer_choice,
             answer_meaning,
             reason
@@ -86,6 +99,13 @@ print("\n✅ answer_meaningの選択状況:")
 print(f"  risky を選んだ数: {answer_counter['risky']}")
 print(f"  certain を選んだ数: {answer_counter['certain']}")
 print(f"  meanの不明な/空白の回答数: {answer_counter['']}")
+
+print("\n✅ templateごとのOption選択状況:")
+for template_type in ["forward", "reversed"]:
+    print(f"  - {template_type}:")
+    print(f"      Option A: {template_counter[template_type]['Option A']}")
+    print(f"      Option B: {template_counter[template_type]['Option B']}")
+    print(f"      不明/空白: {template_counter[template_type]['']}")
 
 # # 空白回答だけを抽出して保存
 # blank_output_path = "trytest/llama3_blank_answers.jsonl"

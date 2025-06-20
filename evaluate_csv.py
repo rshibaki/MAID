@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from statsmodels.nonparametric.smoothers_lowess import lowess
 import matplotlib.pyplot as plt
-from io import StringIO
+#from io import StringIO
 
 
 # ===== 引数の設定 =====
@@ -67,7 +67,7 @@ for persona in min_rewards['persona'].unique():
 
 plt.plot([0, 1], [0, 1], 'k--', label='Y = X (Reference)')
 plt.xlabel('Objective Probability')
-plt.ylabel('Objective Probability')
+plt.ylabel('Subjective Probability')
 plt.title('Subjective-Objective Probability by Persona')
 plt.xlim(0, 1)
 plt.ylim(0, 1)
