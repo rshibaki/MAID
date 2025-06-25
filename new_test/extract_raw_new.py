@@ -31,7 +31,7 @@ def extract_answer(text, prompt):
         # 結果整形
         answer = answer_match.group(1).strip() if answer_match and answer_match.group(1) else ""
         reason = reason_match.group(1).strip() if reason_match else ""
-    elif prompt in ("lion", "12", "mark"):
+    elif prompt in ("lion", "12", "mark", "mark_mukankei"):
         mapping = {
             "option lion": "Option A",
             "option tiger": "Option B",

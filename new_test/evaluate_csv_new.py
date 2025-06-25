@@ -71,7 +71,7 @@ detailed_counts.columns.name = None
 detailed_counts.columns = ['persona', 'p', 'certain_reward', 'risky_reward',
                            'count_A_certain', 'count_A_risky', 'count_B_certain', 'count_B_risky']
 
-# 👉 total_numb列を作成
+#  total_numb列を作成
 detailed_counts["total_numb"] = (
     detailed_counts["count_A_certain"] +
     detailed_counts["count_A_risky"] +
