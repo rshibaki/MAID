@@ -13,6 +13,7 @@ output_path_12 = "new_test/prompts/prob_weigh_prompts_12.jsonl"
 output_path_mark = "new_test/prompts/prob_weigh_prompts_mark.jsonl"
 output_path_lion = "new_test/prompts/prob_weigh_prompts_lion.jsonl"
 output_path_cot = "new_test/prompts/prob_weigh_prompts_cot.jsonl"
+output_path_mark_mukankei = "new_test/prompts/prob_weigh_prompts_mark_mukankei.jsonl"
 
 # ===== 引数の設定 =====
 # parser = argparse.ArgumentParser(description="Run LLM text generation")
@@ -439,6 +440,57 @@ template_reversed_cot = (
     "Now, imagine YOU ARE MAKING THIS DECISION FOR YOURSELF. Respond now:\n"
 )
 
+# mark_mukankeiに変更
+template_mark_mukankei = (
+#   "You are {name}, a {age}-year-old individual.\n"
+   "You are a {age}-year-old individual.\n"   
+    "{context}\n\n"
+    "Based on your intuition and personal risk preferences, which of the following options would you choose?\n\n"
+    "Option ♢: This drug has an {percent}% probability of providing {risky_reward} recurrence-free days.\n"
+    "Option ☆: This drug guarantees {ce} recurrence-free days with 100% certainty.\n\n"
+    "You must choose only one drug.\n"
+    "There are no other treatment options available.\n\n"
+    "IMPORTANT NOTE:\n"
+    "The order of Option ♢ and Option ☆ is randomized. Please make your decision solely based on the content of each option, not their order of appearance. Carefully evaluate both options before responding.\n\n"
+    "YOUR TASK:\n"
+    "Respond in EXACTLY TWO LINES, in this exact format. Do not change anything. Your output must absolutely match the format of the example below, using NO formatting whatsoever (e.g., bold, quotation marks, asterisks, headings, etc.).\n\n"
+    "MANDATORY TEMPLATE:\n"
+    "Answer: Option X. \n"
+    "Reason: [your explanation in one or two sentences].\n\n"
+    "HARD RULES - DO NOT BREAK THESE: \n"
+    "YOUR RESPONSE MUST START WITH 'Answer:' and contain exactly these two lines.\n"
+    "No additional formatting.\n"
+    "No quotation marks or headings.\n"
+    "No extra text before or after.\n"
+    "Mention only the option you choose.\n\n"
+    "Now, imagine YOU ARE MAKING THIS DECISION FOR YOURSELF. Respond now:\n"
+)
+
+template_reversed_mark_mukankei = (
+#    "You are {name}, a {age}-year-old individual.\n"
+    "You are a {age}-year-old individual.\n"    
+    "{context}\n\n"
+    "Based on your intuition and personal risk preferences, which of the following options would you choose?\n\n"
+    "Option ♢: This drug guarantees {ce} recurrence-free days with 100% certainty.\n"
+    "Option ☆: This drug has an {percent}% probability of providing {risky_reward} recurrence-free days.\n\n"
+    "You must choose only one drug.\n"
+    "There are no other treatment options available.\n\n"
+    "IMPORTANT NOTE:\n"
+    "The order of Option ♢ and Option ☆ is randomized. Please make your decision solely based on the content of each option, not their order of appearance. Carefully evaluate both options before responding.\n\n"
+    "YOUR TASK:\n"
+    "Respond in EXACTLY TWO LINES, in this exact format. Do not change anything. Your output must absolutely match the format of the example below, using NO formatting whatsoever (e.g., bold, quotation marks, asterisks, headings, etc.).\n\n"
+    "MANDATORY TEMPLATE:\n"
+    "Answer: Option X. \n"
+    "Reason: [your explanation in one or two sentences].\n\n"
+    "HARD RULES - DO NOT BREAK THESE: \n"
+    "YOUR RESPONSE MUST START WITH 'Answer:' and contain exactly these two lines.\n"
+    "No additional formatting.\n"
+    "No quotation marks or headings.\n"
+    "No extra text before or after.\n"
+    "Mention only the option you choose.\n\n"
+    "Now, imagine YOU ARE MAKING THIS DECISION FOR YOURSELF. Respond now:\n"
+)
+
 write_jsonl = wite_jsonl
 
 write_jsonl(output_path_control, mode="control")
@@ -447,3 +499,4 @@ write_jsonl(output_path_12, mode="12")
 write_jsonl(output_path_mark, mode="mark")
 write_jsonl(output_path_lion, mode="lion")
 write_jsonl(output_path_cot, mode="cot")
+write_jsonl(output_path_mark_mukankei, mode="mark_mukankei")
