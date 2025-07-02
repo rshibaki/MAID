@@ -31,7 +31,7 @@ cancer_types = [
 "lung cancer",
 "colorectal cancer",
 "prostate cancer",
-"gstric cancer",
+"gastric cancer",
 # "liver cancer",
 # "cervical cancer",
 # "esophageal cancer",
