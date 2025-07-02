@@ -20,7 +20,8 @@ dependencies = [
     "together (>=1.5.13,<2.0.0)",
     "statsmodels (>=0.14.4,<0.15.0)",
     "notebook (>=7.4.3,<8.0.0)",
-    "ipykernel (>=6.29.5,<7.0.0)"
+    "ipykernel (>=6.29.5,<7.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)"
 ]
 
 [tool.poetry]

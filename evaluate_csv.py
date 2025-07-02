@@ -15,9 +15,9 @@ args = parser.parse_args()
 input_path =f"outputs/extract_data/{args.model}_extracted.csv"
 output_csv_path = f"outputs/evaluate/{args.model}_evalusted.csv"
 output_figure_path = f"outputs/figures/cefigure_{args.model}.png"
-output_figure_adjust_path = f"outputs/figures/cefigure_adjust_{args.model}.png"
-output_figure_invert_path = f"outputs/figures/cefigure_invert_{args.model}.png"
-output_figure_median_path = f"outputs/figures/cefigure_median_{args.model}.png"       
+output_figure_adjust_path = f"outputs/figures/cefigure_{args.model}_adjust.png"
+output_figure_invert_path = f"outputs/figures/cefigure_{args.model}_invert.png"
+output_figure_median_path = f"outputs/figures/cefigure_{args.model}_median.png"       
 
 # CSVをDataFrameとして読み込み
 df = pd.read_csv(input_path, encoding="utf-8-sig")
@@ -96,6 +96,7 @@ df_csv = pd.read_csv(output_csv_path)
 # 条件を満たす最小certain_reward抽出
 filtered = df_csv[df_csv['prob_certain'] >= 0.5]
 min_rewards = filtered.groupby(['persona', 'p', "risky_reward"])['certain_reward'].min().reset_index()
+min_rewards['certain_reward'] = min_rewards['certain_reward'].fillna(1000)  # NaNを1000で埋める
 min_rewards['subjective_prob'] = min_rewards['certain_reward'] / min_rewards["risky_reward"]
 
 for persona in min_rewards['persona'].unique():
@@ -128,10 +129,11 @@ plt.tight_layout()
 plt.savefig(output_figure_path, dpi=300)
 
 
-# Adjusted Figure
+########## Adjusted Figure ##########
 # 条件を満たす最小certain_reward抽出
 filtered = df_csv[df_csv['prob_certain_adjust'] >= 0.5]
 min_rewards = filtered.groupby(['persona', 'p', "risky_reward"])['certain_reward'].min().reset_index()
+min_rewards['certain_reward'] = min_rewards['certain_reward'].fillna(1000)  # NaNを1000で埋める
 min_rewards['subjective_prob'] = min_rewards['certain_reward'] / min_rewards["risky_reward"]
 
 # Adjust用の図を新規作成（上書き防止）
@@ -166,16 +168,17 @@ plt.tight_layout()
 
 plt.savefig(output_figure_adjust_path, dpi=300)
 
-# Invert Figure作成
+########## Invert Figure (50%以下の最大) ##########
 # 条件を満たす最小certain_reward抽出
-filtered = df_csv[df_csv['prob_certain'] <= 0.5].sort_values(by="prob_certain", ascending=False)
-min_rewards = filtered.groupby(['persona', 'p', 'risky_reward'], as_index=False).first()
-min_rewards['subjective_prob'] = min_rewards['certain_reward'] / min_rewards["risky_reward"]
+filtered = df_csv[df_csv['prob_certain'] <= 0.5]
+max_rewards = filtered.groupby(['persona', 'p', "risky_reward"])['certain_reward'].max().reset_index()
+max_rewards["certain_reward"] = max_rewards["certain_reward"].fillna(0)  # NaNを0で埋める
+max_rewards['subjective_prob'] = max_rewards['certain_reward'] / max_rewards["risky_reward"]
 
 plt.figure()
 
-for persona in min_rewards['persona'].unique():
-    sub_df = min_rewards[min_rewards['persona'] == persona].sort_values('p')
+for persona in max_rewards['persona'].unique():
+    sub_df = max_rewards[max_rewards['persona'] == persona].sort_values('p')
 
     x = sub_df['p'].values
     y = sub_df['subjective_prob'].values
@@ -203,16 +206,25 @@ plt.tight_layout()
 
 plt.savefig(output_figure_invert_path, dpi=300)
 
-# Invert Figure作成
+
+############ Median Figure ##########
 # 条件を満たす最小certain_reward抽出
-filtered = df_csv[df_csv['prob_certain'] <= 0.5].sort_values(by="prob_certain", ascending=False)
-min_rewards = filtered.groupby(['persona', 'p', 'risky_reward'], as_index=False).first()
-min_rewards['subjective_prob'] = min_rewards['certain_reward'] / min_rewards["risky_reward"]
+filtered_min = df_csv[df_csv['prob_certain'] >= 0.5]
+filtered_max = df_csv[df_csv['prob_certain'] <= 0.5]
+median_rewards = filtered_min.groupby(['persona', 'p', "risky_reward"])['certain_reward'].min().reset_index()
+median_rewards.rename(columns={'certain_reward': 'certain_reward_min'}, inplace=True)
+max_rewards = filtered_max.groupby(['persona', 'p', "risky_reward"])['certain_reward'].max().reset_index()
+max_rewards.rename(columns={'certain_reward': 'certain_reward_max'}, inplace=True)
+median_rewards = median_rewards.merge(max_rewards, on=['persona', 'p', 'risky_reward'], how='left')
+median_rewards['certain_reward_min'] = median_rewards['certain_reward_min'].fillna(1000)
+median_rewards['certain_reward_max'] = median_rewards['certain_reward_max'].fillna(0)
+median_rewards['certain_reward_median'] = (median_rewards['certain_reward_min'] + median_rewards['certain_reward_max']) / 2
+median_rewards['subjective_prob'] = median_rewards['certain_reward_median'] / min_rewards["risky_reward"]
 
 plt.figure()
 
-for persona in min_rewards['persona'].unique():
-    sub_df = min_rewards[min_rewards['persona'] == persona].sort_values('p')
+for persona in median_rewards['persona'].unique():
+    sub_df = median_rewards[median_rewards['persona'] == persona].sort_values('p')
 
     x = sub_df['p'].values
     y = sub_df['subjective_prob'].values
@@ -238,4 +250,4 @@ plt.legend(title='Persona')
 plt.grid(True)
 plt.tight_layout()
 
-plt.savefig(output_figure_invert_path, dpi=300)
+plt.savefig(output_figure_median_path, dpi=300)

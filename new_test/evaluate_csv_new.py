@@ -182,3 +182,11 @@ plt.grid(True)
 plt.tight_layout()
 
 plt.savefig(output_figure_adjust_path, dpi=300)
+
+
+
+# # CSV を読み込む
+# df = pd.read_csv(output_csv_path, encoding="utf-8-sig")
+
+# # Excel に書き出す
+# df.to_excel("new_test/outputs/evaluate/testtest.xlsx", index=False, engine="openpyxl")
