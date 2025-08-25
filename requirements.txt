@@ -16,6 +16,8 @@ hf_transfer==0.1.5
 bitsandbytes==0.43.3
 openai==1.87.0
 together==1.5.13
+#flash-attn==2.8.3
+vllm==0.6.3.post1
 
 # === Jupyter / Notebook ===
 notebook==7.4.3

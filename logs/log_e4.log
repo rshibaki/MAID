@@ -1,7 +1,356 @@
-nohup: ignoring input
+INFO 08-25 01:18:24 [importing.py:53] Triton module has been replaced with a placeholder.
+DEBUG 08-25 01:18:24 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:24 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:24 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:24 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:24 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:24 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:24 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:24 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:24 [__init__.py:239] Automatically detected platform cuda.
 Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-WARNING:huggingface_hub._login:Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-🔄 Loading (quantized) model: Qwen/Qwen2.5-72B-Instruct
-Loading checkpoint shards:   0%|          | 0/37 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/37 [00:01<00:40,  1.13s/it]Loading checkpoint shards:   5%|▌         | 2/37 [00:02<00:34,  1.01it/s]Loading checkpoint shards:   8%|▊         | 3/37 [00:02<00:31,  1.09it/s]Loading checkpoint shards:  11%|█         | 4/37 [00:03<00:29,  1.11it/s]Loading checkpoint shards:  14%|█▎        | 5/37 [00:04<00:28,  1.14it/s]Loading checkpoint shards:  16%|█▌        | 6/37 [00:05<00:26,  1.15it/s]Loading checkpoint shards:  19%|█▉        | 7/37 [00:06<00:25,  1.18it/s]Loading checkpoint shards:  22%|██▏       | 8/37 [00:07<00:24,  1.18it/s]Loading checkpoint shards:  24%|██▍       | 9/37 [00:07<00:23,  1.19it/s]Loading checkpoint shards:  27%|██▋       | 10/37 [00:08<00:22,  1.20it/s]Loading checkpoint shards:  30%|██▉       | 11/37 [00:09<00:21,  1.22it/s]Loading checkpoint shards:  32%|███▏      | 12/37 [00:10<00:20,  1.22it/s]Loading checkpoint shards:  35%|███▌      | 13/37 [00:11<00:19,  1.21it/s]Loading checkpoint shards:  38%|███▊      | 14/37 [00:11<00:19,  1.20it/s]Loading checkpoint shards:  41%|████      | 15/37 [00:12<00:18,  1.21it/s]Loading checkpoint shards:  43%|████▎     | 16/37 [00:13<00:17,  1.21it/s]Loading checkpoint shards:  46%|████▌     | 17/37 [00:14<00:16,  1.21it/s]Loading checkpoint shards:  49%|████▊     | 18/37 [00:15<00:15,  1.19it/s]Loading checkpoint shards:  51%|█████▏    | 19/37 [00:16<00:14,  1.21it/s]Loading checkpoint shards:  54%|█████▍    | 20/37 [00:16<00:14,  1.20it/s]Loading checkpoint shards:  57%|█████▋    | 21/37 [00:17<00:13,  1.20it/s]Loading checkpoint shards:  59%|█████▉    | 22/37 [00:18<00:12,  1.20it/s]Loading checkpoint shards:  62%|██████▏   | 23/37 [00:19<00:11,  1.22it/s]Loading checkpoint shards:  65%|██████▍   | 24/37 [00:20<00:10,  1.22it/s]Loading checkpoint shards:  68%|██████▊   | 25/37 [00:21<00:09,  1.24it/s]Loading checkpoint shards:  70%|███████   | 26/37 [00:21<00:09,  1.22it/s]Loading checkpoint shards:  73%|███████▎  | 27/37 [00:22<00:08,  1.23it/s]Loading checkpoint shards:  76%|███████▌  | 28/37 [00:23<00:07,  1.21it/s]Loading checkpoint shards:  78%|███████▊  | 29/37 [00:24<00:06,  1.21it/s]Loading checkpoint shards:  81%|████████  | 30/37 [00:25<00:05,  1.20it/s]Loading checkpoint shards:  84%|████████▍ | 31/37 [00:25<00:04,  1.22it/s]Loading checkpoint shards:  86%|████████▋ | 32/37 [00:26<00:04,  1.20it/s]Loading checkpoint shards:  89%|████████▉ | 33/37 [00:27<00:03,  1.20it/s]Loading checkpoint shards:  92%|█████████▏| 34/37 [00:28<00:02,  1.21it/s]Loading checkpoint shards:  95%|█████████▍| 35/37 [00:29<00:01,  1.23it/s]Loading checkpoint shards:  97%|█████████▋| 36/37 [00:30<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 37/37 [00:30<00:00,  1.26it/s]Loading checkpoint shards: 100%|██████████| 37/37 [00:30<00:00,  1.20it/s]
-Run prompts (HF):   0%|          | 0/207 [00:00<?, ?it/s]Run prompts (HF):   0%|          | 1/207 [00:21<1:13:02, 21.27s/it]Run prompts (HF):   1%|          | 2/207 [00:41<1:10:09, 20.53s/it]Run prompts (HF):   1%|▏         | 3/207 [01:01<1:08:36, 20.18s/it]Run prompts (HF):   2%|▏         | 4/207 [01:20<1:07:57, 20.09s/it]Run prompts (HF):   2%|▏         | 5/207 [01:41<1:07:32, 20.06s/it]Run prompts (HF):   3%|▎         | 6/207 [02:01<1:07:09, 20.05s/it]Run prompts (HF):   3%|▎         | 7/207 [02:21<1:06:46, 20.03s/it]Run prompts (HF):   4%|▍         | 8/207 [02:41<1:06:24, 20.02s/it]Run prompts (HF):   4%|▍         | 9/207 [03:01<1:06:03, 20.02s/it]Run prompts (HF):   5%|▍         | 10/207 [03:21<1:05:43, 20.02s/it]Run prompts (HF):   5%|▌         | 11/207 [03:41<1:05:23, 20.02s/it]Run prompts (HF):   6%|▌         | 12/207 [04:01<1:05:03, 20.02s/it]Run prompts (HF):   6%|▋         | 13/207 [04:21<1:04:43, 20.02s/it]Run prompts (HF):   7%|▋         | 14/207 [04:40<1:04:07, 19.94s/it]Run prompts (HF):   7%|▋         | 15/207 [05:00<1:03:51, 19.95s/it]Run prompts (HF):   8%|▊         | 16/207 [05:20<1:03:34, 19.97s/it]Run prompts (HF):   8%|▊         | 17/207 [05:40<1:03:16, 19.98s/it]Run prompts (HF):   9%|▊         | 18/207 [06:00<1:02:57, 19.99s/it]Run prompts (HF):   9%|▉         | 19/207 [06:20<1:02:40, 20.00s/it]Run prompts (HF):  10%|▉         | 20/207 [06:40<1:02:20, 20.01s/it]Run prompts (HF):  10%|█         | 21/207 [07:00<1:02:01, 20.01s/it]Run prompts (HF):  11%|█         | 22/207 [07:20<1:01:40, 20.00s/it]Run prompts (HF):  11%|█         | 23/207 [07:40<1:01:21, 20.01s/it]Run prompts (HF):  12%|█▏        | 24/207 [08:00<1:01:03, 20.02s/it]Run prompts (HF):  12%|█▏        | 25/207 [08:20<1:00:41, 20.01s/it]Run prompts (HF):  13%|█▎        | 26/207 [08:40<1:00:07, 19.93s/it]Run prompts (HF):  13%|█▎        | 27/207 [09:00<59:51, 19.95s/it]  Run prompts (HF):  14%|█▎        | 28/207 [09:20<59:33, 19.96s/it]Run prompts (HF):  14%|█▍        | 29/207 [09:40<59:14, 19.97s/it]Run prompts (HF):  14%|█▍        | 30/207 [10:00<58:55, 19.98s/it]Run prompts (HF):  15%|█▍        | 31/207 [10:20<58:36, 19.98s/it]Run prompts (HF):  15%|█▌        | 32/207 [10:40<58:17, 19.99s/it]Run prompts (HF):  16%|█▌        | 33/207 [11:00<57:57, 19.99s/it]Run prompts (HF):  16%|█▋        | 34/207 [11:20<57:38, 19.99s/it]Run prompts (HF):  17%|█▋        | 35/207 [11:40<57:17, 19.98s/it]Run prompts (HF):  17%|█▋        | 36/207 [12:00<56:57, 19.99s/it]Run prompts (HF):  18%|█▊        | 37/207 [12:20<56:37, 19.98s/it]Run prompts (HF):  18%|█▊        | 38/207 [12:40<56:17, 19.99s/it]Run prompts (HF):  19%|█▉        | 39/207 [13:00<55:58, 19.99s/it]Run prompts (HF):  19%|█▉        | 40/207 [13:20<55:39, 19.99s/it]Run prompts (HF):  20%|█▉        | 41/207 [13:40<55:18, 19.99s/it]Run prompts (HF):  20%|██        | 42/207 [14:00<54:58, 19.99s/it]Run prompts (HF):  21%|██        | 43/207 [14:20<54:39, 20.00s/it]Run prompts (HF):  21%|██▏       | 44/207 [14:40<54:18, 19.99s/it]Run prompts (HF):  22%|██▏       | 45/207 [15:00<53:58, 19.99s/it]Run prompts (HF):  22%|██▏       | 46/207 [15:20<53:38, 19.99s/it]Run prompts (HF):  23%|██▎       | 47/207 [15:40<53:17, 19.98s/it]Run prompts (HF):  23%|██▎       | 48/207 [16:00<52:56, 19.98s/it]Run prompts (HF):  24%|██▎       | 49/207 [16:20<52:37, 19.98s/it]Run prompts (HF):  24%|██▍       | 50/207 [16:40<52:19, 20.00s/it]Run prompts (HF):  25%|██▍       | 51/207 [17:00<51:59, 19.99s/it]Run prompts (HF):  25%|██▌       | 52/207 [17:20<51:37, 19.98s/it]Run prompts (HF):  26%|██▌       | 53/207 [17:40<51:18, 19.99s/it]Run prompts (HF):  26%|██▌       | 54/207 [18:00<50:49, 19.93s/it]Run prompts (HF):  27%|██▋       | 55/207 [18:20<50:31, 19.95s/it]Run prompts (HF):  27%|██▋       | 56/207 [18:40<50:13, 19.95s/it]Run prompts (HF):  28%|██▊       | 57/207 [19:00<49:53, 19.96s/it]Run prompts (HF):  28%|██▊       | 58/207 [19:20<49:35, 19.97s/it]Run prompts (HF):  29%|██▊       | 59/207 [19:40<49:18, 19.99s/it]Run prompts (HF):  29%|██▉       | 60/207 [20:00<48:58, 19.99s/it]Run prompts (HF):  29%|██▉       | 61/207 [20:20<48:38, 19.99s/it]Run prompts (HF):  30%|██▉       | 62/207 [20:40<48:17, 19.99s/it]Run prompts (HF):  30%|███       | 63/207 [21:00<47:56, 19.98s/it]Run prompts (HF):  31%|███       | 64/207 [21:20<47:37, 19.98s/it]Run prompts (HF):  31%|███▏      | 65/207 [21:40<47:17, 19.98s/it]Run prompts (HF):  32%|███▏      | 66/207 [21:59<46:46, 19.90s/it]Run prompts (HF):  32%|███▏      | 67/207 [22:19<46:28, 19.92s/it]Run prompts (HF):  33%|███▎      | 68/207 [22:39<45:59, 19.85s/it]Run prompts (HF):  33%|███▎      | 69/207 [22:59<45:43, 19.88s/it]Run prompts (HF):  34%|███▍      | 70/207 [23:19<45:27, 19.91s/it]Run prompts (HF):  34%|███▍      | 71/207 [23:39<45:11, 19.94s/it]Run prompts (HF):  35%|███▍      | 72/207 [23:59<44:43, 19.88s/it]Run prompts (HF):  35%|███▌      | 73/207 [24:19<44:27, 19.91s/it]Run prompts (HF):  36%|███▌      | 74/207 [24:39<44:12, 19.94s/it]Run prompts (HF):  36%|███▌      | 75/207 [24:59<43:52, 19.94s/it]Run prompts (HF):  37%|███▋      | 76/207 [25:19<43:34, 19.96s/it]Run prompts (HF):  37%|███▋      | 77/207 [25:39<43:15, 19.96s/it]Run prompts (HF):  38%|███▊      | 78/207 [25:59<42:57, 19.98s/it]Run prompts (HF):  38%|███▊      | 79/207 [26:19<42:37, 19.98s/it]Run prompts (HF):  39%|███▊      | 80/207 [26:38<42:08, 19.91s/it]Run prompts (HF):  39%|███▉      | 81/207 [26:58<41:52, 19.94s/it]Run prompts (HF):  40%|███▉      | 82/207 [27:18<41:35, 19.96s/it]Run prompts (HF):  40%|████      | 83/207 [27:38<41:15, 19.96s/it]Run prompts (HF):  41%|████      | 84/207 [27:58<40:55, 19.97s/it]Run prompts (HF):  41%|████      | 85/207 [28:18<40:35, 19.96s/it]Run prompts (HF):  42%|████▏     | 86/207 [28:38<40:17, 19.98s/it]Run prompts (HF):  42%|████▏     | 87/207 [28:58<39:57, 19.98s/it]Run prompts (HF):  43%|████▎     | 88/207 [29:18<39:37, 19.98s/it]Run prompts (HF):  43%|████▎     | 89/207 [29:38<39:16, 19.97s/it]Run prompts (HF):  43%|████▎     | 90/207 [29:58<38:57, 19.98s/it]Run prompts (HF):  44%|████▍     | 91/207 [30:18<38:36, 19.97s/it]Run prompts (HF):  44%|████▍     | 92/207 [30:38<38:16, 19.97s/it]Run prompts (HF):  45%|████▍     | 93/207 [30:58<37:57, 19.98s/it]Run prompts (HF):  45%|████▌     | 94/207 [31:18<37:37, 19.98s/it]Run prompts (HF):  46%|████▌     | 95/207 [31:38<37:17, 19.98s/it]Run prompts (HF):  46%|████▋     | 96/207 [31:58<36:57, 19.98s/it]Run prompts (HF):  47%|████▋     | 97/207 [32:18<36:38, 19.98s/it]Run prompts (HF):  47%|████▋     | 98/207 [32:38<36:16, 19.97s/it]Run prompts (HF):  48%|████▊     | 99/207 [32:58<35:55, 19.96s/it]Run prompts (HF):  48%|████▊     | 100/207 [33:18<35:36, 19.97s/it]Run prompts (HF):  49%|████▉     | 101/207 [33:38<35:16, 19.97s/it]Run prompts (HF):  49%|████▉     | 102/207 [33:58<34:57, 19.98s/it]Run prompts (HF):  50%|████▉     | 103/207 [34:18<34:37, 19.97s/it]Run prompts (HF):  50%|█████     | 104/207 [34:38<34:18, 19.98s/it]Run prompts (HF):  51%|█████     | 105/207 [34:58<33:59, 19.99s/it]Run prompts (HF):  51%|█████     | 106/207 [35:18<33:39, 20.00s/it]Run prompts (HF):  52%|█████▏    | 107/207 [35:38<33:19, 20.00s/it]Run prompts (HF):  52%|█████▏    | 108/207 [35:58<32:59, 20.00s/it]Run prompts (HF):  53%|█████▎    | 109/207 [36:18<32:39, 20.00s/it]Run prompts (HF):  53%|█████▎    | 110/207 [36:38<32:19, 20.00s/it]Run prompts (HF):  54%|█████▎    | 111/207 [36:58<31:58, 19.99s/it]Run prompts (HF):  54%|█████▍    | 112/207 [37:18<31:39, 20.00s/it]Run prompts (HF):  55%|█████▍    | 113/207 [37:38<31:19, 19.99s/it]Run prompts (HF):  55%|█████▌    | 114/207 [37:58<31:00, 20.00s/it]Run prompts (HF):  56%|█████▌    | 115/207 [38:18<30:40, 20.01s/it]Run prompts (HF):  56%|█████▌    | 116/207 [38:38<30:20, 20.01s/it]Run prompts (HF):  57%|█████▋    | 117/207 [38:58<30:00, 20.01s/it]Run prompts (HF):  57%|█████▋    | 118/207 [39:18<29:40, 20.01s/it]Run prompts (HF):  57%|█████▋    | 119/207 [39:38<29:20, 20.01s/it]Run prompts (HF):  58%|█████▊    | 120/207 [39:58<29:01, 20.01s/it]Run prompts (HF):  58%|█████▊    | 121/207 [40:18<28:41, 20.02s/it]Run prompts (HF):  59%|█████▉    | 122/207 [40:38<28:21, 20.02s/it]Run prompts (HF):  59%|█████▉    | 123/207 [40:58<27:59, 20.00s/it]Run prompts (HF):  60%|█████▉    | 124/207 [41:18<27:39, 19.99s/it]Run prompts (HF):  60%|██████    | 125/207 [41:38<27:14, 19.93s/it]Run prompts (HF):  61%|██████    | 126/207 [41:58<26:55, 19.95s/it]Run prompts (HF):  61%|██████▏   | 127/207 [42:18<26:35, 19.95s/it]Run prompts (HF):  62%|██████▏   | 128/207 [42:38<26:17, 19.97s/it]Run prompts (HF):  62%|██████▏   | 129/207 [42:58<25:57, 19.97s/it]Run prompts (HF):  63%|██████▎   | 130/207 [43:18<25:39, 19.99s/it]Run prompts (HF):  63%|██████▎   | 131/207 [43:38<25:19, 19.99s/it]Run prompts (HF):  64%|██████▍   | 132/207 [43:58<25:00, 20.01s/it]Run prompts (HF):  64%|██████▍   | 133/207 [44:18<24:40, 20.00s/it]Run prompts (HF):  65%|██████▍   | 134/207 [44:38<24:20, 20.01s/it]Run prompts (HF):  65%|██████▌   | 135/207 [44:58<24:00, 20.01s/it]Run prompts (HF):  66%|██████▌   | 136/207 [45:18<23:40, 20.01s/it]Run prompts (HF):  66%|██████▌   | 137/207 [45:38<23:20, 20.01s/it]Run prompts (HF):  67%|██████▋   | 138/207 [45:58<22:59, 19.99s/it]Run prompts (HF):  67%|██████▋   | 139/207 [46:18<22:39, 19.99s/it]Run prompts (HF):  68%|██████▊   | 140/207 [46:38<22:18, 19.98s/it]Run prompts (HF):  68%|██████▊   | 141/207 [46:58<21:59, 19.99s/it]Run prompts (HF):  69%|██████▊   | 142/207 [47:18<21:39, 20.00s/it]Run prompts (HF):  69%|██████▉   | 143/207 [47:38<21:19, 20.00s/it]Run prompts (HF):  70%|██████▉   | 144/207 [47:57<20:54, 19.92s/it]Run prompts (HF):  70%|███████   | 145/207 [48:17<20:35, 19.93s/it]Run prompts (HF):  71%|███████   | 146/207 [48:37<20:17, 19.95s/it]Run prompts (HF):  71%|███████   | 147/207 [48:57<19:53, 19.89s/it]Run prompts (HF):  71%|███████▏  | 148/207 [49:17<19:35, 19.92s/it]Run prompts (HF):  72%|███████▏  | 149/207 [49:37<19:17, 19.96s/it]Run prompts (HF):  72%|███████▏  | 150/207 [49:57<18:58, 19.97s/it]Run prompts (HF):  73%|███████▎  | 151/207 [50:17<18:38, 19.97s/it]Run prompts (HF):  73%|███████▎  | 152/207 [50:37<18:18, 19.98s/it]Run prompts (HF):  74%|███████▍  | 153/207 [50:57<17:59, 19.99s/it]Run prompts (HF):  74%|███████▍  | 154/207 [51:17<17:40, 20.00s/it]Run prompts (HF):  75%|███████▍  | 155/207 [51:37<17:19, 20.00s/it]Run prompts (HF):  75%|███████▌  | 156/207 [51:57<17:00, 20.00s/it]Run prompts (HF):  76%|███████▌  | 157/207 [52:17<16:39, 20.00s/it]Run prompts (HF):  76%|███████▋  | 158/207 [52:37<16:19, 20.00s/it]Run prompts (HF):  77%|███████▋  | 159/207 [52:57<16:00, 20.00s/it]Run prompts (HF):  77%|███████▋  | 160/207 [53:17<15:40, 20.01s/it]Run prompts (HF):  78%|███████▊  | 161/207 [53:37<15:20, 20.00s/it]Run prompts (HF):  78%|███████▊  | 162/207 [53:57<15:00, 20.01s/it]Run prompts (HF):  79%|███████▊  | 163/207 [54:17<14:40, 20.01s/it]Run prompts (HF):  79%|███████▉  | 164/207 [54:37<14:19, 19.99s/it]Run prompts (HF):  80%|███████▉  | 165/207 [54:57<13:59, 19.98s/it]Run prompts (HF):  80%|████████  | 166/207 [55:17<13:39, 19.99s/it]Run prompts (HF):  81%|████████  | 167/207 [55:37<13:19, 19.99s/it]Run prompts (HF):  81%|████████  | 168/207 [55:57<12:59, 19.98s/it]Run prompts (HF):  82%|████████▏ | 169/207 [56:17<12:39, 19.97s/it]Run prompts (HF):  82%|████████▏ | 170/207 [56:37<12:19, 19.98s/it]Run prompts (HF):  83%|████████▎ | 171/207 [56:57<11:59, 19.98s/it]Run prompts (HF):  83%|████████▎ | 172/207 [57:17<11:39, 19.99s/it]Run prompts (HF):  84%|████████▎ | 173/207 [57:37<11:19, 19.99s/it]Run prompts (HF):  84%|████████▍ | 174/207 [57:57<10:59, 19.98s/it]Run prompts (HF):  85%|████████▍ | 175/207 [58:17<10:39, 19.99s/it]Run prompts (HF):  85%|████████▌ | 176/207 [58:37<10:19, 19.99s/it]Run prompts (HF):  86%|████████▌ | 177/207 [58:57<10:00, 20.00s/it]Run prompts (HF):  86%|████████▌ | 178/207 [59:17<09:40, 20.00s/it]Run prompts (HF):  86%|████████▋ | 179/207 [59:37<09:19, 20.00s/it]Run prompts (HF):  87%|████████▋ | 180/207 [59:57<08:59, 20.00s/it]Run prompts (HF):  87%|████████▋ | 181/207 [1:00:17<08:39, 19.99s/it]Run prompts (HF):  88%|████████▊ | 182/207 [1:00:37<08:19, 19.98s/it]Run prompts (HF):  88%|████████▊ | 183/207 [1:00:57<07:59, 19.98s/it]Run prompts (HF):  89%|████████▉ | 184/207 [1:01:17<07:39, 19.98s/it]Run prompts (HF):  89%|████████▉ | 185/207 [1:01:37<07:19, 19.97s/it]Run prompts (HF):  90%|████████▉ | 186/207 [1:01:57<06:59, 19.98s/it]Run prompts (HF):  90%|█████████ | 187/207 [1:02:17<06:39, 19.98s/it]Run prompts (HF):  91%|█████████ | 188/207 [1:02:37<06:19, 19.97s/it]Run prompts (HF):  91%|█████████▏| 189/207 [1:02:57<05:59, 19.98s/it]Run prompts (HF):  92%|█████████▏| 190/207 [1:03:17<05:39, 19.99s/it]Run prompts (HF):  92%|█████████▏| 191/207 [1:03:37<05:19, 19.98s/it]Run prompts (HF):  93%|█████████▎| 192/207 [1:03:57<04:59, 19.99s/it]Run prompts (HF):  93%|█████████▎| 193/207 [1:04:17<04:39, 19.99s/it]Run prompts (HF):  94%|█████████▎| 194/207 [1:04:37<04:19, 20.00s/it]Run prompts (HF):  94%|█████████▍| 195/207 [1:04:57<03:59, 19.99s/it]Run prompts (HF):  95%|█████████▍| 196/207 [1:05:17<03:39, 19.99s/it]Run prompts (HF):  95%|█████████▌| 197/207 [1:05:37<03:19, 19.98s/it]Run prompts (HF):  96%|█████████▌| 198/207 [1:05:56<02:59, 19.90s/it]Run prompts (HF):  96%|█████████▌| 199/207 [1:06:16<02:39, 19.93s/it]Run prompts (HF):  97%|█████████▋| 200/207 [1:06:36<02:19, 19.94s/it]Run prompts (HF):  97%|█████████▋| 201/207 [1:06:56<01:59, 19.96s/it]Run prompts (HF):  98%|█████████▊| 202/207 [1:07:16<01:39, 19.96s/it]Run prompts (HF):  98%|█████████▊| 203/207 [1:07:36<01:19, 19.97s/it]Run prompts (HF):  99%|█████████▊| 204/207 [1:07:56<00:59, 19.98s/it]Run prompts (HF):  99%|█████████▉| 205/207 [1:08:16<00:39, 19.97s/it]Run prompts (HF): 100%|█████████▉| 206/207 [1:08:36<00:19, 19.97s/it]Run prompts (HF): 100%|██████████| 207/207 [1:08:44<00:00, 16.33s/it]Run prompts (HF): 100%|██████████| 207/207 [1:08:44<00:00, 19.92s/it]
-✅ All results saved to outputs/raw_data/demo/qwen2.5/qwen2.5_outputs_E4_BA_peakflow.jsonl
+[2025-08-25 01:18:29] WARNING _login.py:415: Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+[2025-08-25 01:18:29] INFO run_llm.py:204: 🔄 Loading model with vLLM: Qwen/Qwen2.5-3B-Instruct
+mp start_method = spawn
+CUDA_VISIBLE_DEVICES = 0,1,2,3
+cuda_count = 4
+DEBUG 08-25 01:18:29 [__init__.py:28] No plugins for group vllm.general_plugins found.
+WARNING 08-25 01:18:31 [config.py:2972] Casting torch.bfloat16 to torch.float16.
+INFO 08-25 01:18:40 [config.py:717] This model supports multiple tasks: {'classify', 'generate', 'reward', 'score', 'embed'}. Defaulting to 'generate'.
+DEBUG 08-25 01:18:40 [arg_utils.py:1616] Setting max_num_batched_tokens to 8192 for LLM_CLASS usage context.
+INFO 08-25 01:18:40 [config.py:1770] Defaulting to use mp for distributed inference
+INFO 08-25 01:18:40 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+WARNING 08-25 01:18:40 [cuda.py:93] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+DEBUG 08-25 01:18:40 [llm_engine.py:134] Enabling multiprocessing for LLMEngine.
+INFO 08-25 01:18:48 [importing.py:53] Triton module has been replaced with a placeholder.
+DEBUG 08-25 01:18:48 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:48 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:48 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:48 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:48 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:48 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:48 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:48 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:48 [__init__.py:239] Automatically detected platform cuda.
+INFO 08-25 01:18:52 [core.py:58] Initializing a V1 LLM engine (v0.8.5.post1) with config: model='Qwen/Qwen2.5-3B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-3B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.float16, max_seq_len=2048, download_dir='/workspace/hf_cache', load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=Qwen/Qwen2.5-3B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}
+WARNING 08-25 01:18:52 [multiproc_worker_utils.py:306] Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+DEBUG 08-25 01:18:52 [shm_broadcast.py:221] Binding to ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba
+INFO 08-25 01:18:52 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 10485760, 10, 'psm_c0fd43be'), local_subscribe_addr='ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba', remote_subscribe_addr=None, remote_addr_ipv6=False)
+DEBUG 08-25 01:18:54 [core_client.py:425] Waiting for 1 core engine proc(s) to start: {0}
+INFO 08-25 01:18:55 [importing.py:53] Triton module has been replaced with a placeholder.
+INFO 08-25 01:18:56 [importing.py:53] Triton module has been replaced with a placeholder.
+DEBUG 08-25 01:18:56 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:56 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:56 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:56 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:56 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:56 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:56 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:56 [__init__.py:239] Automatically detected platform cuda.
+DEBUG 08-25 01:18:56 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:56 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:56 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:56 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:56 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:56 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:56 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:56 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:56 [__init__.py:239] Automatically detected platform cuda.
+INFO 08-25 01:18:56 [importing.py:53] Triton module has been replaced with a placeholder.
+INFO 08-25 01:18:56 [importing.py:53] Triton module has been replaced with a placeholder.
+DEBUG 08-25 01:18:57 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:57 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:57 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:57 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:57 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:57 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:57 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:28] No plugins for group vllm.platform_plugins found.
+DEBUG 08-25 01:18:57 [__init__.py:34] Checking if TPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:44] TPU platform is not available because: No module named 'libtpu'
+DEBUG 08-25 01:18:57 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:57 [__init__.py:239] Automatically detected platform cuda.
+DEBUG 08-25 01:18:57 [__init__.py:72] Confirmed CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:100] Checking if ROCm platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:114] ROCm platform is not available because: No module named 'amdsmi'
+DEBUG 08-25 01:18:57 [__init__.py:122] Checking if HPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:129] HPU platform is not available because habana_frameworks is not found.
+DEBUG 08-25 01:18:57 [__init__.py:140] Checking if XPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:150] XPU platform is not available because: No module named 'intel_extension_for_pytorch'
+DEBUG 08-25 01:18:57 [__init__.py:158] Checking if CPU platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:180] Checking if Neuron platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:187] Neuron platform is not available because: No module named 'transformers_neuronx'
+DEBUG 08-25 01:18:57 [__init__.py:52] Checking if CUDA platform is available.
+DEBUG 08-25 01:18:57 [__init__.py:72] Confirmed CUDA platform is available.
+INFO 08-25 01:18:57 [__init__.py:239] Automatically detected platform cuda.
+DEBUG 08-25 01:19:00 [__init__.py:28] No plugins for group vllm.general_plugins found.
+DEBUG 08-25 01:19:00 [decorators.py:109] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+DEBUG 08-25 01:19:00 [__init__.py:28] No plugins for group vllm.general_plugins found.
+DEBUG 08-25 01:19:00 [decorators.py:109] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+WARNING 08-25 01:19:01 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f6cb47e62f0>
+DEBUG 08-25 01:19:01 [config.py:4110] enabled custom ops: Counter()
+DEBUG 08-25 01:19:01 [config.py:4112] disabled custom ops: Counter()
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:290] Connecting to ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:221] Binding to ipc:///tmp/ba262e2b-90ec-4d27-bc85-237efbcf2c21
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m INFO 08-25 01:19:01 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_eb2d875c'), local_subscribe_addr='ipc:///tmp/ba262e2b-90ec-4d27-bc85-237efbcf2c21', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 08-25 01:19:01 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fc8410a6800>
+DEBUG 08-25 01:19:01 [config.py:4110] enabled custom ops: Counter()
+DEBUG 08-25 01:19:01 [config.py:4112] disabled custom ops: Counter()
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:290] Connecting to ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:221] Binding to ipc:///tmp/94f86d5a-06ba-4a9a-b9e2-2402094858e3
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m INFO 08-25 01:19:01 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_7a483a66'), local_subscribe_addr='ipc:///tmp/94f86d5a-06ba-4a9a-b9e2-2402094858e3', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m DEBUG 08-25 01:19:01 [parallel_state.py:867] world_size=4 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:54699 backend=nccl
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m DEBUG 08-25 01:19:01 [parallel_state.py:867] world_size=4 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:54699 backend=nccl
+DEBUG 08-25 01:19:01 [__init__.py:28] No plugins for group vllm.general_plugins found.
+DEBUG 08-25 01:19:01 [decorators.py:109] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+DEBUG 08-25 01:19:01 [__init__.py:28] No plugins for group vllm.general_plugins found.
+DEBUG 08-25 01:19:01 [decorators.py:109] Inferred dynamic dimensions for forward method of <class 'vllm.model_executor.models.llama.LlamaModel'>: ['input_ids', 'positions', 'intermediate_tensors', 'inputs_embeds']
+WARNING 08-25 01:19:01 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f1d414980a0>
+DEBUG 08-25 01:19:01 [config.py:4110] enabled custom ops: Counter()
+DEBUG 08-25 01:19:01 [config.py:4112] disabled custom ops: Counter()
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:290] Connecting to ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:221] Binding to ipc:///tmp/d6e8debd-9494-4a74-b574-5d90dd19f7a5
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m INFO 08-25 01:19:01 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_e27efbd8'), local_subscribe_addr='ipc:///tmp/d6e8debd-9494-4a74-b574-5d90dd19f7a5', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 08-25 01:19:01 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fac4e264850>
+DEBUG 08-25 01:19:01 [config.py:4110] enabled custom ops: Counter()
+DEBUG 08-25 01:19:01 [config.py:4112] disabled custom ops: Counter()
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:290] Connecting to ipc:///tmp/89a92d09-3bc6-4959-85f1-b0c2ddcca6ba
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m DEBUG 08-25 01:19:01 [shm_broadcast.py:221] Binding to ipc:///tmp/88184974-e1bb-4cd3-9fdb-eaf82eb9eda6
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m INFO 08-25 01:19:01 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_6225c553'), local_subscribe_addr='ipc:///tmp/88184974-e1bb-4cd3-9fdb-eaf82eb9eda6', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m DEBUG 08-25 01:19:02 [parallel_state.py:867] world_size=4 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:54699 backend=nccl
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m DEBUG 08-25 01:19:02 [parallel_state.py:867] world_size=4 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:54699 backend=nccl
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m INFO 08-25 01:19:02 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m INFO 08-25 01:19:02 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m INFO 08-25 01:19:02 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m INFO 08-25 01:19:02 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m INFO 08-25 01:19:02 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m INFO 08-25 01:19:02 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m INFO 08-25 01:19:02 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m INFO 08-25 01:19:02 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 305, in __init__
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/worker/worker_base.py", line 604, in init_device
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()  # type: ignore
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 135, in init_device
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     init_worker_distributed_environment(self.vllm_config, self.rank,
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 326, in init_worker_distributed_environment
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     ensure_model_parallel_initialized(parallel_config.tensor_parallel_size,
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 1022, in ensure_model_parallel_initialized
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     initialize_model_parallel(tensor_model_parallel_size,
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 975, in initialize_model_parallel
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     _TP = init_model_parallel_group(group_ranks,
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 788, in init_model_parallel_group
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     return GroupCoordinator(
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 252, in __init__
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.device_communicator = device_comm_cls(
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/cuda_communicator.py", line 39, in __init__
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.pynccl_comm = PyNcclCommunicator(
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl.py", line 99, in __init__
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 277, in ncclCommInitRank
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 256, in NCCL_CHECK
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     raise RuntimeError(f"NCCL error: {error_str}")
+[1;36m(VllmWorker rank=3 pid=9879)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] RuntimeError: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details)
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 305, in __init__
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/worker/worker_base.py", line 604, in init_device
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()  # type: ignore
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 135, in init_device
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     init_worker_distributed_environment(self.vllm_config, self.rank,
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 326, in init_worker_distributed_environment
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     ensure_model_parallel_initialized(parallel_config.tensor_parallel_size,
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 1022, in ensure_model_parallel_initialized
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     initialize_model_parallel(tensor_model_parallel_size,
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 975, in initialize_model_parallel
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     _TP = init_model_parallel_group(group_ranks,
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 788, in init_model_parallel_group
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     return GroupCoordinator(
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 252, in __init__
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.device_communicator = device_comm_cls(
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/cuda_communicator.py", line 39, in __init__
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.pynccl_comm = PyNcclCommunicator(
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl.py", line 99, in __init__
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 277, in ncclCommInitRank
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 256, in NCCL_CHECK
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     raise RuntimeError(f"NCCL error: {error_str}")
+[1;36m(VllmWorker rank=2 pid=9878)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] RuntimeError: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details)
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 305, in __init__
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/worker/worker_base.py", line 604, in init_device
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()  # type: ignore
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 135, in init_device
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     init_worker_distributed_environment(self.vllm_config, self.rank,
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 326, in init_worker_distributed_environment
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     ensure_model_parallel_initialized(parallel_config.tensor_parallel_size,
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 1022, in ensure_model_parallel_initialized
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     initialize_model_parallel(tensor_model_parallel_size,
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 975, in initialize_model_parallel
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     _TP = init_model_parallel_group(group_ranks,
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 788, in init_model_parallel_group
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     return GroupCoordinator(
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 252, in __init__
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.device_communicator = device_comm_cls(
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/cuda_communicator.py", line 39, in __init__
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.pynccl_comm = PyNcclCommunicator(
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl.py", line 99, in __init__
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 277, in ncclCommInitRank
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 256, in NCCL_CHECK
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     raise RuntimeError(f"NCCL error: {error_str}")
+[1;36m(VllmWorker rank=1 pid=9877)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] RuntimeError: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details)
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 305, in __init__
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/worker/worker_base.py", line 604, in init_device
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.worker.init_device()  # type: ignore
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 135, in init_device
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     init_worker_distributed_environment(self.vllm_config, self.rank,
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/worker/gpu_worker.py", line 326, in init_worker_distributed_environment
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     ensure_model_parallel_initialized(parallel_config.tensor_parallel_size,
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 1022, in ensure_model_parallel_initialized
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     initialize_model_parallel(tensor_model_parallel_size,
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 975, in initialize_model_parallel
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     _TP = init_model_parallel_group(group_ranks,
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 788, in init_model_parallel_group
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     return GroupCoordinator(
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/parallel_state.py", line 252, in __init__
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.device_communicator = device_comm_cls(
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/cuda_communicator.py", line 39, in __init__
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.pynccl_comm = PyNcclCommunicator(
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl.py", line 99, in __init__
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.comm: ncclComm_t = self.nccl.ncclCommInitRank(
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 277, in ncclCommInitRank
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     self.NCCL_CHECK(self._funcs["ncclCommInitRank"](ctypes.byref(comm),
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]   File "/usr/local/lib/python3.10/dist-packages/vllm/distributed/device_communicators/pynccl_wrapper.py", line 256, in NCCL_CHECK
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435]     raise RuntimeError(f"NCCL error: {error_str}")
+[1;36m(VllmWorker rank=0 pid=9876)[0;0m ERROR 08-25 01:19:02 [multiproc_executor.py:435] RuntimeError: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details)
+ERROR 08-25 01:19:04 [core.py:396] EngineCore failed to start.
+ERROR 08-25 01:19:04 [core.py:396] Traceback (most recent call last):
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 387, in run_engine_core
+ERROR 08-25 01:19:04 [core.py:396]     engine_core = EngineCoreProc(*args, **kwargs)
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 329, in __init__
+ERROR 08-25 01:19:04 [core.py:396]     super().__init__(vllm_config, executor_class, log_stats,
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 64, in __init__
+ERROR 08-25 01:19:04 [core.py:396]     self.model_executor = executor_class(vllm_config)
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/executor/executor_base.py", line 52, in __init__
+ERROR 08-25 01:19:04 [core.py:396]     self._init_executor()
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
+ERROR 08-25 01:19:04 [core.py:396]     self.workers = WorkerProc.wait_for_ready(unready_workers)
+ERROR 08-25 01:19:04 [core.py:396]   File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
+ERROR 08-25 01:19:04 [core.py:396]     raise e from None
+ERROR 08-25 01:19:04 [core.py:396] Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.10/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 400, in run_engine_core
+    raise e
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 387, in run_engine_core
+    engine_core = EngineCoreProc(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 329, in __init__
+    super().__init__(vllm_config, executor_class, log_stats,
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core.py", line 64, in __init__
+    self.model_executor = executor_class(vllm_config)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
+    self.workers = WorkerProc.wait_for_ready(unready_workers)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
+    raise e from None
+Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/weakref.py", line 667, in _exitfunc
+    f()
+  File "/usr/lib/python3.10/weakref.py", line 591, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/executor/multiproc_executor.py", line 228, in shutdown
+    for w in self.workers:
+AttributeError: 'MultiprocExecutor' object has no attribute 'workers'
+DEBUG 08-25 01:19:04 [core_client.py:425] Waiting for 1 core engine proc(s) to start: {0}
+Traceback (most recent call last):
+  File "/workspace/run_llm.py", line 375, in <module>
+    main()
+  File "/workspace/run_llm.py", line 205, in main
+    vllm_engine = build_vllm(model_id)
+  File "/workspace/run_llm.py", line 100, in build_vllm
+    llm = LLM(
+  File "/usr/local/lib/python3.10/dist-packages/vllm/utils.py", line 1161, in inner
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/entrypoints/llm.py", line 247, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/llm_engine.py", line 138, in from_engine_args
+    return cls(vllm_config=vllm_config,
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/llm_engine.py", line 92, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core_client.py", line 73, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core_client.py", line 494, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core_client.py", line 398, in __init__
+    self._wait_for_engine_startup()
+  File "/usr/local/lib/python3.10/dist-packages/vllm/v1/engine/core_client.py", line 430, in _wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above.

@@ -7,12 +7,12 @@ services:
       - "8888:8888"
     volumes:
       - .:/workspace
-      - ./hf_cache:/workspace/hf_cache   # HFキャッシュ永続化（初回DL短縮）
-      # 必要なら事前DL済みモデルをマウント
-      # - ./models/gpt-oss-120b:/app/models/gpt-oss-120b
+      - ./hf_cache:/workspace/hf_cache   # HFキャッシュ永続化
     environment:
       - HF_TOKEN=${HF_TOKEN}
-      - GPTOSS_MODEL_ID=openai/gpt-oss-120b
+      - HF_HOME=/workspace/hf_cache
+      - HF_HUB_ENABLE_HF_TRANSFER=1
+      - VLLM_LOGGING_LEVEL=DEBUG
     deploy:
       resources:
         reservations:

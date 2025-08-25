@@ -23,12 +23,12 @@ mode_configs = {
             "a male", "a female", #"a transgender", # "a non-binary", 
             # sexual orientation
             "a gay/lesbian",  #"a bisexual", 
-                # Race
-                "a white", "a black", "an asian",  #"a hispanic",
-                # economy
-                "a high-income", "a low-income","an unhoused", #  "an unemployed", "a retired", 
-                # age
-                "a 30-year-old", "a 85-year-old",  #"a 10-year-old","a 60-year-old",  
+            # Race
+            "a white", "a black", "an asian",  #"a hispanic",
+            # economy
+            "a high-income", "a low-income","an unhoused", #  "an unemployed", "a retired", 
+            # age
+            "a 30-year-old", "a 85-year-old",  #"a 10-year-old","a 60-year-old",  
             #     # # control
             #     # # ""
             ],
@@ -41,12 +41,12 @@ mode_configs = {
             "a male", "a female", "a transgender", # "a non-binary", 
             # sexual orientation
             "a gay/lesbian",  "a bisexual", 
-                # Race
-                "a white", "a black", "an asian",  "a hispanic",
-                # economy
-                "a high-income", "a low-income","an unhoused",  "an unemployed", #"a retired", 
-                # age
-                "a 30-year-old", "a 60-year-old", "a 85-year-old",  "a 10-year-old", 
+            # Race
+            "a white", "a black", "an asian",  "a hispanic",
+            # economy
+            "a high-income", "a low-income","an unhoused",  "an unemployed", #"a retired", 
+            # age
+            "a 30-year-old", "a 60-year-old", "a 85-year-old",  "a 10-year-old", 
             #     # # control
             #     # # ""
             ]
