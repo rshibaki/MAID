@@ -8,7 +8,7 @@ __pycache__/
 
 # ログ・出力
 # logs/
-# outputs/
+outputs/
 # *.log
 
 # Python環境
