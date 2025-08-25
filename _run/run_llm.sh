@@ -21,6 +21,16 @@ export http_proxy=$MY_PROXY_URL
 export https_proxy=$MY_PROXY_URL
 export ftp_proxy=$MY_PROXY_URL
 
+
+
+ENV_FILE="$HOME/mykeys.env"
+if [ -f "$ENV_FILE" ]; then
+  set -a          # 読み込んだ変数をすべて export するモードに
+  . "$ENV_FILE"   # KEY=VALUE 形式を展開して環境に反映
+  set +a
+fi
+
+
 pip install -r requirements.txt
 cd /hss/gMAI/RShibaki_tmp/MAID
 
