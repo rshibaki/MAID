@@ -1,5 +1,0 @@
-usage: run_llm.py [-h] --model
-                  {llama3,deepseek,gemma3,gpt41mini,gpt4.1,llama4,qwen3,qwen2.5,gptoss}
-                  --prompt {e1,e2,e3,e4,e5,s1,s2,s3,s4,s5,c1,c2,c3,c6,c7,c8}
-                  [--temp TEMP] [--d D]
-run_llm.py: error: unrecognized arguments: 2t

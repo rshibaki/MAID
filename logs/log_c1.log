@@ -1,35 +1,0 @@
-Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-WARNING:huggingface_hub._login:Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-INFO:root:🔄 Loading (HF) model: Qwen/Qwen2.5-72B-Instruct
-mp start_method = spawn
-CUDA_VISIBLE_DEVICES = 0,1,2,3
-cuda_count = 4
-Loading checkpoint shards:   0%|          | 0/37 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/37 [00:01<00:49,  1.37s/it]Loading checkpoint shards:   5%|▌         | 2/37 [00:03<00:54,  1.54s/it]Loading checkpoint shards:   8%|▊         | 3/37 [00:04<00:53,  1.56s/it]Loading checkpoint shards:  11%|█         | 4/37 [00:06<00:57,  1.73s/it]Loading checkpoint shards:  11%|█         | 4/37 [00:07<00:59,  1.79s/it]
-Traceback (most recent call last):
-  File "/workspace/run_llm.py", line 404, in <module>
-    main()
-  File "/workspace/run_llm.py", line 254, in main
-    hf_model = AutoModelForCausalLM.from_pretrained(
-  File "/usr/local/lib/python3.10/dist-packages/transformers/models/auto/auto_factory.py", line 600, in from_pretrained
-    return model_class.from_pretrained(
-  File "/usr/local/lib/python3.10/dist-packages/transformers/modeling_utils.py", line 316, in _wrapper
-    return func(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/transformers/modeling_utils.py", line 5061, in from_pretrained
-    ) = cls._load_pretrained_model(
-  File "/usr/local/lib/python3.10/dist-packages/transformers/modeling_utils.py", line 5524, in _load_pretrained_model
-    _error_msgs, disk_offload_index, cpu_offload_index = load_shard_file(args)
-  File "/usr/local/lib/python3.10/dist-packages/transformers/modeling_utils.py", line 974, in load_shard_file
-    disk_offload_index, cpu_offload_index = _load_state_dict_into_meta_model(
-  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/transformers/modeling_utils.py", line 882, in _load_state_dict_into_meta_model
-    hf_quantizer.create_quantized_param(
-  File "/usr/local/lib/python3.10/dist-packages/transformers/quantizers/quantizer_bnb_8bit.py", line 239, in create_quantized_param
-    new_value = bnb.nn.Int8Params(new_value, requires_grad=False, **kwargs).to(target_device)
-  File "/usr/local/lib/python3.10/dist-packages/bitsandbytes/nn/modules.py", line 626, in to
-    return self.cuda(device)
-  File "/usr/local/lib/python3.10/dist-packages/bitsandbytes/nn/modules.py", line 587, in cuda
-    CB, CBt, SCB, SCBt, coo_tensorB = bnb.functional.double_quant(B)
-  File "/usr/local/lib/python3.10/dist-packages/bitsandbytes/functional.py", line 2528, in double_quant
-    out_row = torch.zeros(A.shape, device=device, dtype=torch.int8)
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 232.00 MiB. GPU 0 has a total capacity of 44.53 GiB of which 87.12 MiB is free. Process 1182880 has 34.48 GiB memory in use. Process 1183955 has 9.94 GiB memory in use. Of the allocated memory 9.31 GiB is allocated by PyTorch, and 146.95 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
