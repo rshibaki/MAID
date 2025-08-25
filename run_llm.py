@@ -24,9 +24,9 @@ from huggingface_hub import login
 from transformers import AutoTokenizer, AutoModelForCausalLM, GenerationConfig
 from vllm import LLM, SamplingParams
 from vllm.config import DeviceConfig
-from tqdm import tqdm                 # ← 追加
-from openai import OpenAI             # ← 追加
-from together import Together         # ← 追加
+from tqdm import tqdm        
+from openai import OpenAI    
+from together import Together
 
 logging.basicConfig(level=logging.INFO)
 
@@ -65,8 +65,8 @@ MODEL_CONFIGS = {
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "qwen2.5": {
-        #"model_id": "Qwen/Qwen2.5-72B-Instruct",
-        "model_id": "Qwen/Qwen2.5-3B-Instruct",
+        "model_id": "Qwen/Qwen2.5-72B-Instruct",
+        #"model_id": "Qwen/Qwen2.5-3B-Instruct",
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "gptoss": {
@@ -97,18 +97,20 @@ PROMPTS_CONFIGS = {
 }
 
 def build_vllm(model_id: str) -> LLM:
-    tp = torch.cuda.device_count() or 1  # ← 自動で 4 を拾う
+    tp = int(os.getenv("TP_SIZE", str(torch.cuda.device_count() or 1)))
+
     llm = LLM(
         model=model_id,
         trust_remote_code=True,
         dtype="bfloat16",                 # L40S なので BF16 推奨（FP16 でも可）
         tensor_parallel_size=tp,          # ← 1 → 4（自動）
         pipeline_parallel_size=1,
-        gpu_memory_utilization=0.90,      # ← 0.72 → 0.90 に上げる
-        max_model_len=4096,               # ← 72B ではまず 4k くらいから
+        gpu_memory_utilization=0.82,      # ← 0.72 → 0.90 に上げる
+        max_model_len=1024,            # ← 72B ではまず 4k くらいから
         enforce_eager=True,
         max_num_seqs=1,
-        disable_custom_all_reduce=False,  # ← まずは False。通信エラー時は True に戻す
+        kv_cache_dtype="auto",
+        disable_custom_all_reduce=True,
         download_dir=os.getenv("HF_HOME", "/workspace/hf_cache"),
     )
     return llm
@@ -121,7 +123,7 @@ def main():
     parser.add_argument("--prompt", type=str, choices=PROMPTS_CONFIGS.keys(), required=True, help="Prompt alias (e.g., e1")
     parser.add_argument("--temp", type=float, default=0.3, help="Temperature (default: 0.4)")
     parser.add_argument("--d", type=str, default="d", help="demo or test")
-    parser.add_argument("--engine", type=str, choices=["auto", "vllm", "hf", "openai", "together"], default="auto", help="Inference engine")
+    parser.add_argument("--engine", type=str, choices=["auto", "vllm", "hf", "openai", "together"], default="vllm", help="Inference engine")
     args = parser.parse_args()
 
     # ログイン設定
@@ -181,7 +183,7 @@ def main():
         # vLLM を優先（指定 or auto で vLLM が使えれば）
         if (args.engine in ["auto", "vllm"]):
             use_vllm = True
-        else:
+        elif args.engine == "hf":
             use_hf = True
 
 
@@ -210,7 +212,8 @@ def main():
         except Exception:
             vllm_tokenizer = None
 
-    else:
+    elif use_hf:
+        from transformers import BitsAndBytesConfig
         # transformers でロード（従来どおり）
         def auto_max_memory(ratio=0.90):
             mm = {}
@@ -222,17 +225,42 @@ def main():
             return mm
 
         logging.info(f"🔄 Loading (HF) model: {model_id}")
-        tokenizer = AutoTokenizer.from_pretrained(model_id, trust_remote_code=True, padding_side="left")
+        
+        # from transformers.utils import logging as hf_logging
+        # hf_logging.set_verbosity_info()  # 進捗を少し詳しく出す
+
+        tokenizer = AutoTokenizer.from_pretrained(
+            model_id,
+            trust_remote_code=True,
+            padding_side="left",
+        )
+        quant_config = BitsAndBytesConfig(
+            load_in_8bit=True,
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+        )
         max_mem = auto_max_memory(0.90)
+        
+        use_flash = False
+        try:
+            import flash_attn  # あるか確認
+            use_flash = True
+        except Exception:
+            pass
+
+        attn_impl = "flash_attention_2" if use_flash else "sdpa"
+        
         hf_model = AutoModelForCausalLM.from_pretrained(
             model_id,
-            torch_dtype=torch.bfloat16,
+            torch_dtype=torch.float16,
             device_map="auto",
             max_memory=max_mem,
             trust_remote_code=True,
             low_cpu_mem_usage=True,
-            token=hf_token,
-            attn_implementation="flash_attention_2",
+            #token=hf_token,
+            attn_implementation=attn_impl,
+            quantization_config=quant_config,
         )
         hf_model.eval()
         try:
@@ -245,7 +273,8 @@ def main():
 
 
     # ===== 🔧 ミニバッチ推論を導入 =====
-    batch_size = 1
+    batch_size = 32
+    #l40s: qwen2.5-70B(32)
     max_tokens = 20
 
     from torch import inference_mode

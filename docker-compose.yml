@@ -7,12 +7,25 @@ services:
       - "8888:8888"
     volumes:
       - .:/workspace
-      - ./hf_cache:/workspace/hf_cache   # HFキャッシュ永続化
+      - /mnt/ssd/hf_cache:/workspace/hf_cache
     environment:
       - HF_TOKEN=${HF_TOKEN}
       - HF_HOME=/workspace/hf_cache
       - HF_HUB_ENABLE_HF_TRANSFER=1
       - VLLM_LOGGING_LEVEL=DEBUG
+      - VLLM_ATTENTION_BACKEND=TORCH_SDPA  # ✅ これを追加（FP8 KV cache 最適化）
+      - CUDA_VISIBLE_DEVICES=0,1,2,3
+      # --- NCCL 安定化オプション ---
+      - NCCL_DEBUG=INFO
+      - NCCL_IB_DISABLE=1
+      - NCCL_P2P_DISABLE=0
+      - PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+      # - NCCL_SOCKET_IFNAME=lo
+    shm_size: "8g"
+    ipc: host
+    ulimits:
+      memlock: -1
+      stack: 67108864
     deploy:
       resources:
         reservations:
@@ -20,7 +33,10 @@ services:
             - driver: nvidia
               count: 4
               capabilities: [gpu]
+    # 推奨：ホストと同じUID/GIDで実行して、キャッシュの権限問題を根絶
+    #user: "${UID:-1000}:${GID:-1000}"
     stdin_open: true
     tty: true
     env_file:
       - .env
+    command: ["tail","-f","/dev/null"]   # ★これを追加
