@@ -25,5 +25,5 @@ pip install -r requirements.txt
 cd /hss/gMAI/RShibaki_tmp/MAID
 
 
-python3 run_llm.py --model qwen2.5 --prompt e4 --engine hf
+python3 run_llm.py --model qwen2.5 --prompt c1 --engine hf
 
