@@ -1,0 +1,26 @@
+services:
+  maid:
+    build: .
+    image: maid-gpu-cu121:locked
+    container_name: maid-container
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+      - ./hf_cache:/workspace/hf_cache   # HFキャッシュ永続化（初回DL短縮）
+      # 必要なら事前DL済みモデルをマウント
+      # - ./models/gpt-oss-120b:/app/models/gpt-oss-120b
+    environment:
+      - HF_TOKEN=${HF_TOKEN}
+      - GPTOSS_MODEL_ID=openai/gpt-oss-120b
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 4
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
