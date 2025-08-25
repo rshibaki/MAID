@@ -65,8 +65,8 @@ MODEL_CONFIGS = {
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "qwen2.5": {
-        "model_id": "Qwen/Qwen2.5-72B-Instruct",
-        #"model_id": "Qwen/Qwen2.5-3B-Instruct",
+        # "model_id": "Qwen/Qwen2.5-72B-Instruct",
+        "model_id": "Qwen/Qwen2.5-3B-Instruct",
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "gptoss": {
