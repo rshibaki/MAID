@@ -13,7 +13,7 @@ services:
       - HF_HOME=/workspace/hf_cache
       - HF_HUB_ENABLE_HF_TRANSFER=1
       - VLLM_LOGGING_LEVEL=DEBUG
-      - VLLM_ATTENTION_BACKEND=TORCH_SDPA  # ✅ これを追加（FP8 KV cache 最適化）
+      #- VLLM_ATTENTION_BACKEND=TORCH_SDPA  # ✅ これを追加（FP8 KV cache 最適化）
       - CUDA_VISIBLE_DEVICES=0,1,2,3
       # --- NCCL 安定化オプション ---
       - NCCL_DEBUG=INFO
