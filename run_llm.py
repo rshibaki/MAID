@@ -65,8 +65,8 @@ MODEL_CONFIGS = {
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "qwen2.5": {
-        # "model_id": "Qwen/Qwen2.5-72B-Instruct",
-        "model_id": "Qwen/Qwen2.5-3B-Instruct",
+        "model_id": "Qwen/Qwen2.5-72B-Instruct",
+        #"model_id": "Qwen/Qwen2.5-3B-Instruct",
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "gptoss": {
@@ -102,7 +102,8 @@ def build_vllm(model_id: str) -> LLM:
     llm = LLM(
         model=model_id,
         trust_remote_code=True,
-        dtype="bfloat16",                 # L40S なので BF16 推奨（FP16 でも可）
+        #dtype="bfloat16",  
+        dtype="float16",  # L40S なので BF16 推奨（FP16 でも可）
         tensor_parallel_size=tp,          # ← 1 → 4（自動）
         pipeline_parallel_size=1,
         gpu_memory_utilization=0.82,      # ← 0.72 → 0.90 に上げる

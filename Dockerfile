@@ -11,8 +11,8 @@ RUN python3 -m pip install --upgrade pip setuptools wheel packaging
 RUN pip3 install --no-cache-dir --index-url https://download.pytorch.org/whl/cu121 \
     torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1
 
-# FlashAttention-2（torch 2.4.1 / CUDA 12.1 の想定）
-RUN pip3 install --no-cache-dir "flash-attn==2.6.3" --no-build-isolation
+# # FlashAttention-2（torch 2.4.1 / CUDA 12.1 の想定）
+# RUN pip3 install --no-cache-dir "flash-attn==2.6.3" --no-build-isolation
 
 #  pyairports を先に“直URL”で入れておく（Python3.10で使える最終版）
 #   参考: 公式ホイール (py3-none-any)
