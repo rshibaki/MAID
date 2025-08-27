@@ -4,8 +4,8 @@
 ##$ -N maid-qwen25
 # --- ジョブクラス：4GPU / 高速共有ストレージ可 / 72h 上限 ---
 #    * g1/g4/g8 でGPU枚数、".72h" で最大経過時間72hに変更
-#$ -jc gs-container_g4.72h
-#$ -ac d=nvcr-pytorch-2309,d_shm=64G
+##$ -jc gs-container_g4.72h
+##$ -ac d=nvcr-pytorch-2309,d_shm=64G
 #$ -j y
 
 . /fefs/opt/dgx/env_set/nvcr-pytorch-2309-py3.sh
@@ -41,6 +41,6 @@ export HF_HUB_ENABLE_HF_TRANSFER=1
 cd /hss/gMAI/RShibaki_tmp/MAID
 pip install -r requirements.txt
 
-python3 generate_prompts.py
-#python3 run_llm.py --model qwen2.5 --prompt e1 --engine hf
+#python3 generate_prompts.py
+python3 run_llm.py --model qwen2.5 --prompt e1 --engine hf
 
