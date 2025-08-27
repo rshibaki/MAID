@@ -35,7 +35,11 @@ if [ -f "$ENV_FILE" ]; then
 fi
 
 # ===== Hugging Face キャッシュは /hss に置くのが速い（gs-container_* で利用可）=====
-export HF_HOME="/hss/gMAI/RShibaki_tmp/hf_cache"
+export HF_HOME="${HOME}/.cache/hf_cache"
+export TRANSFORMERS_CACHE="${HOME}/.cache/transformers"
+export HF_DATASETS_CACHE="${HOME}/.cache/hf_datasets"
+export DIFFUSERS_CACHE="${HOME}/.cache/diffusers"
+# export HF_HOME="/hss/gMAI/RShibaki_tmp/hf_cache"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 cd /hss/gMAI/RShibaki_tmp/MAID
