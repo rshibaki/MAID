@@ -1,9 +1,9 @@
 # ===== これより上は「環境変数セット」だけ。torch/vllm より前 =====
 import os, multiprocessing as mp
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
-os.environ["NVIDIA_VISIBLE_DEVICES"] = "0,1,2,3"
-os.environ["VLLM_LOGGING_LEVEL"] = "DEBUG"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+# os.environ["NVIDIA_VISIBLE_DEVICES"] = "0,1,2,3"
+# os.environ["VLLM_LOGGING_LEVEL"] = "DEBUG"
 #os.environ["VLLM_ATTENTION_BACKEND"] = "TRITON"
 os.environ["VLLM_WORKER_MULTIPROC_METHOD"] = "spawn"  # 公式の切替
 
@@ -65,8 +65,8 @@ MODEL_CONFIGS = {
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "qwen2.5": {
-        "model_id": "Qwen/Qwen2.5-72B-Instruct",
-        #"model_id": "Qwen/Qwen2.5-3B-Instruct",
+        #"model_id": "Qwen/Qwen2.5-72B-Instruct",
+        "model_id": "Qwen/Qwen2.5-3B-Instruct",
         #"output_path": "outputs/raw_data/qwen3_outputs.jsonl"
     },
     "gptoss": {

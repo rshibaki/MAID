@@ -22,7 +22,6 @@ export https_proxy=$MY_PROXY_URL
 export ftp_proxy=$MY_PROXY_URL
 
 
-
 ENV_FILE="$HOME/mykeys.env"
 if [ -f "$ENV_FILE" ]; then
   set -a          # 読み込んだ変数をすべて export するモードに
@@ -30,10 +29,13 @@ if [ -f "$ENV_FILE" ]; then
   set +a
 fi
 
+# ===== Hugging Face キャッシュは /hss に置くのが速い（gs-container_* で利用可）=====
+export HF_HOME="/hss/gMAI/RShibaki_tmp/hf_cache"
+export HF_HUB_ENABLE_HF_TRANSFER=1
 
-pip install -r requirements.txt
 cd /hss/gMAI/RShibaki_tmp/MAID
+pip install -r requirements.txt
 
-
-python3 run_llm.py --model qwen2.5 --prompt c1 --engine hf
+python3 generate_prompts.py
+#python3 run_llm.py --model qwen2.5 --prompt e1 --engine hf
 
