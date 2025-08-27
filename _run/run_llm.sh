@@ -1,5 +1,10 @@
 #!/bin/sh
 #$ -S /bin/sh
+#$ -cwd
+##$ -N maid-qwen25
+# --- ジョブクラス：4GPU / 高速共有ストレージ可 / 72h 上限 ---
+#    * g1/g4/g8 でGPU枚数、".72h" で最大経過時間72hに変更
+#$ -jc gs-container_g4.72h
 #$ -ac d=nvcr-pytorch-2309,d_shm=64G
 #$ -j y
 
