@@ -63,5 +63,5 @@ print("has pyairports?", pkgutil.find_loader("pyairports") is not None)
 PY
 
 #python3 generate_prompts.py
-python3 run_llm.py --model qwen2.5 --prompt s3 --engine hf --d t
+python3 run_llm.py --model qwen2.5 --prompt s4 --engine hf --d t
 
