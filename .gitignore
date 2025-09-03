@@ -22,4 +22,4 @@ outputs/
 
 core.*
 prompts/*
-run_ll.sh.o*
+run_llm.sh.o*
