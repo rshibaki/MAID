@@ -1,0 +1,24 @@
+# === Core scientific stack ===
+numpy==1.26.4
+pandas==2.2.3
+matplotlib==3.10.3
+seaborn==0.13.2
+openpyxl==3.1.5
+statsmodels==0.14.4
+
+# === NLP / LLM related (Transformers + Harmony で gpt-oss を動かす) ===
+transformers==4.55.0
+openai-harmony==0.0.4
+accelerate==1.7.0
+huggingface-hub==0.34.0
+sentencepiece==0.2.0
+hf_transfer==0.1.5
+bitsandbytes==0.43.3
+openai==1.87.0
+together==1.5.13
+vllm==0.6.3.post1
+
+# === Jupyter / Notebook ===
+notebook==7.4.3
+jupyterlab==4.4.5
+ipykernel==6.29.5

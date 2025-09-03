@@ -1,2 +1,24 @@
-.venv/
+# モデル・キャッシュ
+models/
+hf_cache/
 __pycache__/
+*.ckpt
+*.pt
+*.pth
+
+# ログ・出力
+logs/*
+outputs/
+# *.log
+
+# Python環境
+.venv/
+*.egg-info/
+.env
+
+# その他
+*.ipynb_checkpoints/
+
+
+core.*
+prompts/*
