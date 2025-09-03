@@ -274,7 +274,7 @@ def main():
 
 
     # ===== 🔧 ミニバッチ推論を導入 =====
-    batch_size = 32
+    batch_size = 128
     #l40s: qwen2.5-70B(32)
     max_tokens = 20
 

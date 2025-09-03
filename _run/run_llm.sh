@@ -43,8 +43,25 @@ export DIFFUSERS_CACHE="${HOME}/.cache/diffusers"
 export HF_HUB_ENABLE_HF_TRANSFER=1
 
 cd /hss/gMAI/RShibaki_tmp/MAID
-pip install -r requirements.txt
+
+python -m pip install --upgrade --user pip setuptools wheel packaging
+
+# （重要）pyairports を直URLで先に入れる
+#   ※ PyPI 検索で見つからないため。直URLなら入ります。
+pip install --user \
+  https://files.pythonhosted.org/packages/6e/75/b424aebc9f2fc5db319d5df5fff62fa19254c8ef974c254588d48c480df2/pyairports-2.1.1-py3-none-any.whl
+
+# outlines のバージョン制約ファイルを一時作成（vLLM要件を満たす 0.0.46 を固定）
+echo "outlines==0.0.46" > /tmp/constraints.txt
+
+pip install --user -r requirements.txt
+
+python - <<'PY'
+import huggingface_hub, vllm, outlines, pkgutil
+print("OK: huggingface_hub/vllm/outlines importable")
+print("has pyairports?", pkgutil.find_loader("pyairports") is not None)
+PY
 
 #python3 generate_prompts.py
-python3 run_llm.py --model qwen2.5 --prompt e1 --engine hf
+python3 run_llm.py --model qwen2.5 --prompt s3 --engine hf --d t
 
